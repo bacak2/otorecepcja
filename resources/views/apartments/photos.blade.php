@@ -4,6 +4,12 @@
 
     <div class="ta-center">
         <div class="d-inline-block">
+            <h1>Zdjęcie główne</h1>
+        </div>
+    </div>
+
+    <div class="ta-center">
+        <div class="d-inline-block">
             <h1>Zdjęcia</h1>
         </div>
     </div>
@@ -14,20 +20,22 @@
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th class="w-25px ta-center">Miniatura</th>
+                    <th class="w-25 ta-center">Miniatura</th>
                     <th>Nazwa</th>
-                    <th class="w-25px ta-center">Up</th>
-                    <th class="w-25px ta-center">Down</th>
+                    <th class="w-25px ta-center">Góra</th>
+                    <th class="w-25px ta-center">Dół</th>
+                    <th class="w-25px ta-center">Usuń</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($photos as $photo)
                     <tr>
                         <input type="hidden" name="{{$photo->id}}" value="{{$photo->photo_link}}">
-                        <td class="ta-center">{{$photo->photo_link}}</td>
+                        <td class="ta-center"><img class="img-fluid" src="{{ "http://dev.otozakopane.com"."/images/apartaments/$apartmentId/$photo->photo_link" }}" alt="{{$photo->photo_link}}"></td>
                         <td>{{$photo->photo_link}}</td>
-                        <td class="ta-center"><a class="up btn btn-info" href="#">UP</a></td>
-                        <td class="ta-center"><a class="down btn btn-info" href="#">DOWN</a></td>
+                        <td class="ta-center"><a class="up btn btn-info">UP</a></td>
+                        <td class="ta-center"><a class="down btn btn-info">DOWN</a></td>
+                        <td class="ta-center"><a class="delete btn btn-danger">X</a></td>
                     </tr>
                 @endforeach
             </tbody>
@@ -47,12 +55,17 @@
 <script>
     $(document).ready(function(){
         $(".up,.down").click(function(){
-            var row = $(this).parents("tr:first");
+            let row = $(this).parents("tr:first");
             if ($(this).is(".up")) {
                 row.insertBefore(row.prev());
             } else {
                 row.insertAfter(row.next());
             }
+        });
+
+        $(".delete").click(function(){
+            let row = $(this).parents("tr:first");
+            row.remove();
         });
     });
 </script>

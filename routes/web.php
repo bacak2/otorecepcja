@@ -22,6 +22,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/apartments/edit/{id}', 'ApartmentsController@edit')->name('apartments.edit');
 
+    Route::get('/apartments/prices/{id}', 'ApartmentsController@prices')->name('apartments.prices');
+
     Route::get('/complex', 'HomeController@index')->name('complex');
 
     Route::get('/price-list', 'HomeController@index')->name('price-list');

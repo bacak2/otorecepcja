@@ -101,6 +101,25 @@ class ApartmentsController extends MenuController
     }
 
     public function savePhotos(Request $request){
-        dd($request);
+
+        $apartment = new Apartments();
+        $photosSaved = $apartment->saveApartmentPhotos($request);
+
+        return redirect()->route("apartments.main");
+    }
+
+    public function prices($id){
+
+        $apartment = new Apartments();
+        $prices = $apartment->apartmentPrices($id);
+        //dd($prices);
+
+        return view('apartments.prices', [
+            'menu' => $this->menu,
+            'submenu' => $this->submenu,
+            'activeSubmenu' => $this->activeSubmenu,
+            'prices' => $prices,
+            'apartmentId' => $id,
+        ]);
     }
 }

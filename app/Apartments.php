@@ -147,4 +147,41 @@ class Apartments extends Model
 
         return $photos;
     }
+
+    public function saveApartmentPhotos($request){
+
+        $photoLinks = array_values($request->except(['_token', 'apartmentId']));
+
+        try{
+            DB::table('apartament_photos')
+                ->where('apartament_id', $request->apartmentId)
+                ->delete();
+
+            foreach($photoLinks as $photoLink){
+                DB::table('apartament_photos')
+                    ->insert([
+                        'apartament_id' => $request->apartmentId,
+                        'photo_link' => $photoLink
+                    ]);
+            }
+
+        }catch(Exception $e){
+            dd($e);
+        }
+
+    }
+
+    /*
+     * Get all prices to display in list
+     */
+    public function apartmentPrices($id, $perPage = 30){
+
+        $photos = DB::table('apartament_prices')
+            ->select('price_value', 'date_of_price')
+            ->where('apartament_id', $id)
+            ->where('date_of_price', '>', date('now'))
+            ->paginate($perPage);
+
+        return $photos;
+    }
 }
