@@ -28,8 +28,24 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/apartments/prices/{id}', 'ApartmentsController@prices')->name('apartments.prices');
 
-    Route::get('/complex', 'HomeController@index')->name('complex');
+    Route::get('/complex', 'ComplexesController@index')->name('complex');
 
-    Route::get('/price-list', 'HomeController@index')->name('price-list');
+    Route::get('/complex/main', 'ComplexesController@index')->name('complex.main');
 
+    Route::get('/complex/new', 'ComplexesController@newApartment')->name('complex.new');
+
+    Route::post('/complex/insert', 'ComplexesController@insert')->name('complex.insert');
+
+    Route::post('/complex/update', 'ComplexesController@update')->name('complex.update');
+
+    Route::get('/complex/photos/{id}', 'ComplexesController@photos')->name('complex.photos');
+
+    Route::get('/complex/photos/new/{id}', 'ComplexesController@newPhotos')->name('complex.photosNew');
+
+    Route::post('/complex/save-photos', 'ComplexesController@savePhotos')->name('complex.savePhotos');
+
+    Route::get('/complex/edit/{id}', 'ComplexesController@edit')->name('complex.edit');
+
+    Route::get('/complex/prices/{id}', 'ComplexesController@prices')->name('complex.prices');
+    
 });

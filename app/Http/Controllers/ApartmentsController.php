@@ -119,14 +119,21 @@ class ApartmentsController extends MenuController
         $apartment->changeMainImg($mainImgLink, $apartmentId);
 
         if($changedMainImg){
-            //resize main
+            //resize and replace main img
+            $apartment->resizeMainImg($mainImgLink, $apartmentId);
         }
 
         return redirect()->route("apartments.main");
     }
 
     public function newPhotos(){
-        dd('add new photos form');
+
+        return view('apartments.photos-new', [
+            'menu' => $this->menu,
+            'submenu' => $this->submenu,
+            'activeSubmenu' => $this->activeSubmenu,
+        ]);
+
     }
 
     public function prices($id){

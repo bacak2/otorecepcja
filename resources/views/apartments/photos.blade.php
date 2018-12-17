@@ -6,7 +6,7 @@
         <div class="d-inline-block">
             <h1>Zdjęcia</h1>
         </div>
-        <a class="btn btn-lg btn-success pull-right" href="{{ route('apartments.photosNew', ['id' => $apartmentId]) }}"><img style="max-width: 12px" src="{{ asset("images/Apartment/add.png") }}"> Dodaj nowe</a>
+        <a class="btn btn-lg btn-success pull-right" href="{{ route('apartments.photosNew', ['id' => $apartmentId]) }}"><img style="max-width: 10px" src="{{ asset("images/Apartment/add.png") }}"> Dodaj nowe</a>
     </div>
 
     @if($photos !== null)

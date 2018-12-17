@@ -117,8 +117,6 @@ class Apartments extends Model
 
         $apartment = $this->apartmentFromRequest($request, $description);
 
-        //dd($apartmentId);
-
         try{
             DB::table('apartament_descriptions')
                 ->where('apartament_id', $apartmentId)
@@ -138,12 +136,11 @@ class Apartments extends Model
     /*
      * Get all photos to display in list
      */
-    public function apartmentPhotos($id, $perPage = 20){
+    public function apartmentPhotos($id){
 
         $photos = DB::table('apartament_photos')
             ->where('apartament_id', $id)
             ->get();
-            //->paginate($perPage);
 
         return $photos;
     }
@@ -219,6 +216,16 @@ class Apartments extends Model
         }catch(Exception $e){
             dd($e);
         }
+
+    }
+
+    public function resizeMainImg($mainImgLink, $apartmentId){
+// "http://dev.otozakopane.com"."/images/apartaments/$apartmentId/$mainImgLink"
+
+        //$img = imagecreatefromfile("http://dev.otozakopane.com"."/images/apartaments/$apartmentId/$mainImgLink");
+        $img = imagecreate(12, 12);
+        $min = imagescale($img, 100);
+        dd($min);
 
     }
 
