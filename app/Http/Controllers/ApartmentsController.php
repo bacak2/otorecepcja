@@ -90,29 +90,49 @@ class ApartmentsController extends MenuController
         $apartment = new Apartments();
         $photos = $apartment->apartmentPhotos($id);
 
+        $mainPhotoId = $apartment->apartmentMainPhoto($id);
+
         return view('apartments.photos', [
             'menu' => $this->menu,
             'submenu' => $this->submenu,
             'activeSubmenu' => $this->activeSubmenu,
             'photos' => $photos,
             'apartmentId' => $id,
+            'mainPhotoId' => $mainPhotoId,
         ]);
 
     }
 
+    /*
+     * Save photos
+     */
     public function savePhotos(Request $request){
 
+        $newMainPhotoId = $request->mainPhoto;
+        $apartmentId = $request->apartmentId;
+
         $apartment = new Apartments();
-        $photosSaved = $apartment->saveApartmentPhotos($request);
+        $changedMainImg = $apartment->checkMainImgChanged($newMainPhotoId, $apartmentId);
+        $mainImgLink = $apartment->getMainImgLink($newMainPhotoId, $apartmentId);
+
+        $apartment->saveApartmentPhotos($request);
+        $apartment->changeMainImg($mainImgLink, $apartmentId);
+
+        if($changedMainImg){
+            //resize main
+        }
 
         return redirect()->route("apartments.main");
+    }
+
+    public function newPhotos(){
+        dd('add new photos form');
     }
 
     public function prices($id){
 
         $apartment = new Apartments();
         $prices = $apartment->apartmentPrices($id);
-        //dd($prices);
 
         return view('apartments.prices', [
             'menu' => $this->menu,

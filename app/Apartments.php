@@ -148,9 +148,23 @@ class Apartments extends Model
         return $photos;
     }
 
+    /*
+     * Get main photo
+     */
+    public function apartmentMainPhoto($id){
+
+        $mainPhoto = DB::table('apartament_photos')
+            ->select('id')
+            ->where('apartament_id', $id)
+            ->where('main_photo', 1)
+            ->first();
+
+        return $mainPhoto->id;
+    }
+
     public function saveApartmentPhotos($request){
 
-        $photoLinks = array_values($request->except(['_token', 'apartmentId']));
+        $photoLinks = array_values($request->except(['_token', 'apartmentId', 'mainPhoto']));
 
         try{
             DB::table('apartament_photos')
@@ -164,6 +178,43 @@ class Apartments extends Model
                         'photo_link' => $photoLink
                     ]);
             }
+
+        }catch(Exception $e){
+            dd($e);
+        }
+
+    }
+
+    public function checkMainImgChanged($oldMainPhotoId, $apartmentId){
+
+        if($this->apartmentMainPhoto($apartmentId) == $oldMainPhotoId) return false;
+        else return true;
+
+    }
+
+    public function getMainImgLink($newMainPhotoId, $apartmentId){
+
+        $mainPhotoLink = DB::table('apartament_photos')
+            ->select('photo_link')
+            ->where('apartament_id', $apartmentId)
+            ->where('id', $newMainPhotoId)
+            ->first();
+
+        return $mainPhotoLink->photo_link;
+
+    }
+
+    public function changeMainImg($mainImgLink, $apartmentId){
+
+        try{
+            DB::table('apartament_photos')
+                ->where('apartament_id', $apartmentId)
+                ->update(['main_photo' => 0]);
+
+            DB::table('apartament_photos')
+                ->where('apartament_id', $apartmentId)
+                ->where('photo_link', $mainImgLink)
+                ->update(['main_photo' => 1]);
 
         }catch(Exception $e){
             dd($e);

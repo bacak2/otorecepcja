@@ -4,7 +4,9 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/', 'HomeController@index')->name('reservations');
+    Route::get('/', 'ApartmentsController@index');
+
+    Route::get('/wtf', 'HomeController@index')->name('reservations');
 
     Route::get('/apartments', 'ApartmentsController@index')->name('apartments');
 
@@ -17,6 +19,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/apartments/update', 'ApartmentsController@update')->name('apartments.update');
 
     Route::get('/apartments/photos/{id}', 'ApartmentsController@photos')->name('apartments.photos');
+
+    Route::get('/apartments/photos/new/{id}', 'ApartmentsController@newPhotos')->name('apartments.photosNew');
 
     Route::post('/apartments/save-photos', 'ApartmentsController@savePhotos')->name('apartments.savePhotos');
 
