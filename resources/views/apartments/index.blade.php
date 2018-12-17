@@ -10,7 +10,6 @@
                     <th>Nazwa</th>
                     <th class="w-25px ta-center">Edycja</th>
                     <th class="w-25px ta-center">Zdjęcia</th>
-                    <th class="w-25px ta-center">Cenniki</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,7 +19,6 @@
                         <td>{{$apartment->apartament_name}}</td>
                         <td class="ta-center"><a class="btn btn-info" href="{{route('apartments.edit', ['id'=>$apartment->apartament_id])}}">a</a></td>
                         <td class="ta-center"><a class="btn btn-info" href="{{route('apartments.photos', ['id'=>$apartment->apartament_id])}}">a</a></td>
-                        <td class="ta-center"><a class="btn btn-info" href="{{route('apartments.prices', ['id'=>$apartment->apartament_id])}}">a</a></td>
                     </tr>
                 @endforeach
             </tbody>
