@@ -25,14 +25,14 @@ class ComplexesController extends MenuController
 
         $this->setActiveSubmenu('main');
 
-        $apartment = new Apartments();
-        $apartments = $apartment->mainList();
+        $complexes = new Complexes();
+        $complexes = $complexes->mainList();
 
-        return view('apartments.index', [
+        return view('complex.index', [
             'menu' => $this->menu,
             'submenu' => $this->submenu,
             'activeSubmenu' => $this->activeSubmenu,
-            'apartments' => $apartments,
+            'apartments' => $complexes,
         ]);
 
     }

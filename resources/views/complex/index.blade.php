@@ -17,8 +17,8 @@
                     <tr>
                         <td>{{$apartment->apartament_id}}</td>
                         <td>{{$apartment->apartament_name}}</td>
-                        <td class="ta-center"><a class="btn btn-outline-custom" href="{{route('apartments.edit', ['id'=>$apartment->apartament_id])}}"><img class="icon" src="{{ asset("images/Apartment/Pencil.png") }}"></a></td>
-                        <td class="ta-center"><a class="btn btn-outline-custom" href="{{route('apartments.photos', ['id'=>$apartment->apartament_id])}}"><img class="icon" src="{{ asset("images/Apartment/Images.png") }}"></a></td>
+                        <td class="ta-center"><a class="btn btn-outline-custom" href="{{route('complex.edit', ['id'=>$apartment->apartament_id])}}"><img class="icon" src="{{ asset("images/Apartment/Pencil.png") }}"></a></td>
+                        <td class="ta-center"><a class="btn btn-outline-custom" href="{{route('complex.photos', ['id'=>$apartment->apartament_id])}}"><img class="icon" src="{{ asset("images/Apartment/Images.png") }}"></a></td>
                     </tr>
                 @endforeach
             </tbody>

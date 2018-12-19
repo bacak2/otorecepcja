@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\DB;
 class Complexes extends Model
 {
     /*
-     * Get all apartments to display in list
+     * Get all complexes to display in list
      */
     public function mainList($perPage = 10, $filters = null){
 
-        $apartments = DB::table('apartament_descriptions')
+        $apartments = DB::table('apartament_group_descriptions')
             ->select('apartament_id', 'apartament_name')
             ->where('language_id', 1)
             ->paginate($perPage);
