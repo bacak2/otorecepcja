@@ -257,7 +257,7 @@
     </div>
 
     <div class="form-group row">
-        {!! Form::label('apartament_cooker', 'Dzielnica', ['class' => 'col-1 col-form-label pr-0']) !!}
+        {!! Form::label('apartament_cooker', 'Kuchenka', ['class' => 'col-1 col-form-label pr-0']) !!}
         <div class="col-11">
             {!! Form::select('apartament_cooker', apartament_cookers(), $apartment->apartament_cooker ?? '') !!}
         </div>

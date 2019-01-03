@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7f8598c-8863-4da3-95f7-f6fb667ef418" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Complexes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Complexes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ComplexesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ComplexesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/complex/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/complex/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Complex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Complex.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/apartments/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/apartments/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/complex/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/complex/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,23 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Complexes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Complexes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-              <folding>
-                <element signature="e#23#62#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ComplexesController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ComplexesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+            <state relative-caret-position="1088">
+              <caret line="67" column="47" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
               <folding>
                 <element signature="e#40#59#0#PHP" expanded="true" />
               </folding>
@@ -65,38 +59,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/apartments/form.blade.php">
+      <file leaf-file-name="Complexes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Complexes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="382" column="65" selection-start-line="382" selection-start-column="65" selection-end-line="382" selection-end-column="65" />
+            <state relative-caret-position="674">
+              <caret line="252" column="7" selection-start-line="252" selection-start-column="7" selection-end-line="252" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/complex/index.blade.php">
+      <file leaf-file-name="login.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="148" selection-start-line="19" selection-start-column="148" selection-end-line="19" selection-end-column="215" />
+            <state relative-caret-position="374">
+              <caret line="22" column="86" selection-start-line="22" selection-start-column="86" selection-end-line="22" selection-end-column="86" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Complex.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/Complex.php">
+      <file leaf-file-name="layout.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="170">
+              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="photos.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/apartments/photos.blade.php">
+      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="77" selection-start-line="29" selection-start-column="77" selection-end-line="29" selection-end-column="105" />
+            <state>
+              <caret column="20" selection-start-column="20" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/complex/form.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="30" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -114,17 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>main_big</find>
-      <find>fotorama</find>
-      <find>&lt;script</find>
-      <find>apartmentDetail</find>
-      <find>list</find>
-      <find>metraż</find>
-      <find>text</find>
-      <find>size</find>
-      <find>&lt;br&gt;</find>
-      <find>dodatkowe</find>
-      <find>{{--</find>
       <find>apartament_description_begin</find>
       <find>wanna</find>
       <find>szer</find>
@@ -144,9 +136,19 @@
       <find>Apartments</find>
       <find>res</find>
       <find>scale</find>
+      <find>new Apartments()</find>
+      <find>dziel</find>
+      <find>multi</find>
+      <find>join</find>
+      <find>apartament_other_bathroom_equipment</find>
+      <find>getApartmentToMerge</find>
+      <find>updateApartmentGroupId</find>
+      <find>update</find>
+      <find>//</find>
+      <find>auth.failed</find>
+      <find>faile</find>
     </findStrings>
     <replaceStrings>
-      <replace>{{ __('messages.Paid') }}:</replace>
       <replace>&quot;setCustomValidity(&quot;Wprowadź poprawny adres email&quot;)&quot;</replace>
       <replace>&quot;setCustomValidity('&quot;.__('messages.Please select the number of people').&quot;')&quot;</replace>
       <replace>&quot;setCustomValidity('&quot;.__('messages.Enter valid postcode').&quot;')&quot;</replace>
@@ -176,6 +178,7 @@
       <replace>complex</replace>
       <replace>Complexes</replace>
       <replace>src=&quot;{{ asset(&quot;js/file-uploader/</replace>
+      <replace>new Complexes()</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -195,9 +198,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/includes/search-form.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/includes/slider.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/about-us/contact.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/includes/search-form-results.blade.php" />
         <option value="$PROJECT_DIR$/app/Apartament.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/results-kafle.blade.php" />
@@ -229,23 +229,26 @@
         <option value="$PROJECT_DIR$/resources/views/pages/apartamentsGroup.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/Apartment.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/resources/views/apartments/prices.blade.php" />
         <option value="$PROJECT_DIR$/public/css/main.scss" />
-        <option value="$PROJECT_DIR$/app/Http/helpers.php" />
-        <option value="$PROJECT_DIR$/resources/views/layout.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/apartments/index.blade.php" />
         <option value="$PROJECT_DIR$/public/css/main.css" />
         <option value="$PROJECT_DIR$/resources/views/apartments/photos.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/apartments/photos-new.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApartmentsController.php" />
         <option value="$PROJECT_DIR$/app/Apartments.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/Complex.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Complexes.php" />
         <option value="$PROJECT_DIR$/resources/views/complex/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ComplexesController.php" />
         <option value="$PROJECT_DIR$/resources/views/apartments/form.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/helpers.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/Complex.php" />
+        <option value="$PROJECT_DIR$/resources/views/complex/form.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ComplexesController.php" />
+        <option value="$PROJECT_DIR$/app/Complexes.php" />
+        <option value="$PROJECT_DIR$/resources/views/layout.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
   </component>
@@ -356,9 +359,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="328" />
-    <option name="width" value="1434" />
-    <option name="height" value="881" />
+    <option name="x" value="12" />
+    <option name="y" value="411" />
+    <option name="width" value="1270" />
+    <option name="height" value="726" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -395,56 +399,6 @@
               <item name="Otorecepcja" type="b2602c69:ProjectViewProjectNode" />
               <item name="Otorecepcja" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="Otorecepcja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Otorecepcja" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Otorecepcja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Otorecepcja" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Otorecepcja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Otorecepcja" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Otorecepcja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Otorecepcja" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Requests" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Otorecepcja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Otorecepcja" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Otorecepcja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Otorecepcja" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Otorecepcja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Otorecepcja" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="apartments" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Otorecepcja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Otorecepcja" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="complex" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -463,18 +417,18 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Http/Requests" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
-      <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/resources/views/apartments" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/account/favourites" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/Http" />
       <recent name="$PROJECT_DIR$/resources/views/includes" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views" />
+      <recent name="$PROJECT_DIR$/app/Http/Requests" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/resources/views/apartments" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -791,15 +745,23 @@
       <workItem from="1544776954238" duration="20291000" />
       <workItem from="1545031154825" duration="4214000" />
       <workItem from="1545117979531" duration="1163000" />
-      <workItem from="1545223149181" duration="274000" />
+      <workItem from="1545223149181" duration="3237000" />
+      <workItem from="1545290669847" duration="587000" />
+      <workItem from="1545294771833" duration="856000" />
+      <workItem from="1545314380317" duration="3115000" />
+      <workItem from="1545380415427" duration="35000" />
+      <workItem from="1545388995100" duration="9394000" />
+      <workItem from="1545402726558" duration="226000" />
+      <workItem from="1546512125292" duration="725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2635021000" />
+    <option name="totallyTimeSpent" value="2652922000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-1" width="1442" height="881" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.30901858" />
@@ -808,9 +770,10 @@
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32891247" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28183118" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23032904" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32947233" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -821,7 +784,6 @@
       <window_info active="true" anchor="bottom" id="Command Line Tools Console" order="9" visible="true" weight="0.26131955" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32947233" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -854,19 +816,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/apartments/form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6494">
-          <caret line="382" column="65" selection-start-line="382" selection-start-column="65" selection-end-line="382" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/results-none.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/account/favourites/kafle.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/account/favourites/lista.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/account/favourites/mapa.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/results-mapa.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/reservation/confirmation.blade.php" />
     <entry file="file://$PROJECT_DIR$/resources/lang/en/messages.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/pages/index.blade.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/reservation/fourthStep.blade.php" />
@@ -886,13 +835,6 @@
     <entry file="file://$PROJECT_DIR$/resources/views/pages/apartamentsGroup.blade.php" />
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Apartaments.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/pages/apartaments.blade.php" />
-    <entry file="file://$PROJECT_DIR$/app/helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_1.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -928,13 +870,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/apartments/prices.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -946,20 +881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="67" column="20" lean-forward="true" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -1005,13 +926,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/Complex.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApartmentsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
@@ -1026,33 +940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Complexes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-          <folding>
-            <element signature="e#23#62#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ComplexesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-          <folding>
-            <element signature="e#40#59#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/complex/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1060,10 +947,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers.php" />
+    <entry file="file://$PROJECT_DIR$/app/Http/helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/Complex.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/apartments/form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="382" column="65" selection-start-line="382" selection-start-column="65" selection-end-line="382" selection-end-column="65" />
+        <state relative-caret-position="176">
+          <caret line="339" column="125" selection-start-line="339" selection-start-column="125" selection-end-line="339" selection-end-column="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/complex/form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ComplexesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="67" column="47" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
+          <folding>
+            <element signature="e#40#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Complexes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="252" column="7" selection-start-line="252" selection-start-column="7" selection-end-line="252" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/validation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="87" column="51" selection-start-line="87" selection-start-column="46" selection-end-line="87" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/passwords.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/pagination.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/auth.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="130" column="62" selection-start-line="130" selection-start-column="62" selection-end-line="130" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="86" selection-start-line="22" selection-start-column="86" selection-end-line="22" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="20" selection-start-column="20" selection-end-column="20" />
         </state>
       </provider>
     </entry>

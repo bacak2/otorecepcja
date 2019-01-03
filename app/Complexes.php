@@ -52,10 +52,6 @@ class Complexes extends Model
         $description[] = "apartament_description_else";
 
         $apartment = $request->except($description);
-        if($request->input('apartament_other_equipment')) $apartment['apartament_other_equipment'] = implode(", ", $request->input('apartament_other_equipment'));
-        else $apartment['apartament_other_equipment'] = '';
-        if($request->input('apartament_other_bathroom_equipment')) $apartment['apartament_other_bathroom_equipment'] = implode(", ", $request->input('apartament_other_bathroom_equipment'));
-        else $apartment['apartament_other_bathroom_equipment'] = '';
 
         return $apartment;
 
@@ -66,9 +62,9 @@ class Complexes extends Model
      */
     public function apartmentToEdit($id){
 
-        $apartment = DB::table('apartament_descriptions')
-            ->join('apartaments', 'apartaments.id', '=', 'apartament_descriptions.apartament_id')
-            ->where('apartament_id', $id)
+        $apartment = DB::table('apartament_group_descriptions')
+            ->join('apartament_groups', 'apartament_groups.group_id', '=', 'apartament_group_descriptions.apartament_id')
+            ->where('group_id', $id)
             ->where('language_id', 1)
             ->first();
 
@@ -89,14 +85,27 @@ class Complexes extends Model
         $description = $this->descriptionFromRequest($request);
 
         $apartment = $this->apartmentFromRequest($request, $description);
+        $apartmentInfo = $this->getApartmentToMerge($apartment['apartments']);
+        $apartment['apartaments_amount'] = count($apartment['apartments']);
 
-        //dd($description);
+        $apGroups = DB::table('apartament_groups')
+            ->selectRaw('MAX(group_id) AS maxId')
+            ->first();
+
+        $groupId = $apGroups->maxId + 1;
+        $apartment['group_id'] = $groupId;
+        $description['apartament_id'] = $groupId;
+
+        $this->updateApartmentGroupId($apartment['apartments'], $groupId);
+
+        unset($apartment['apartments']);
+        $apartment = array_merge($apartment, $apartmentInfo);
 
         try{
-            $description['apartament_id'] = DB::table('apartaments')
-                ->insertGetId($apartment);
+            DB::table('apartament_groups')
+                ->insert($apartment);
 
-            DB::table('apartament_descriptions')
+            DB::table('apartament_group_descriptions')
                 ->insert($description);
 
 
@@ -111,20 +120,30 @@ class Complexes extends Model
      */
     public function saveChanges($request){
 
-        $apartmentId = $request->input('apartament_id');
+        $unselectedId = array_diff(explode(", ", $request->input('mergedIds')), $request->input('apartments'));
+        $this->updateApartmentGroupId($unselectedId, 0);
+
+        $groupId = $request->input('apartament_id');
 
         $description = $this->descriptionFromRequest($request);
 
         $apartment = $this->apartmentFromRequest($request, $description);
+        $this->updateApartmentGroupId($apartment['apartments'], $groupId);
+        $apartmentInfo = $this->getApartmentToMerge($apartment['apartments']);
+        $apartment['apartaments_amount'] = count($apartment['apartments']);
+
+        unset($apartment['apartments']);
+        unset($apartment['mergedIds']);
+        $apartment = array_merge($apartment, $apartmentInfo);
 
         try{
-            DB::table('apartament_descriptions')
-                ->where('apartament_id', $apartmentId)
+            DB::table('apartament_group_descriptions')
+                ->where('apartament_id', $groupId)
                 ->where('language_id', 1)
                 ->update($description);
 
-            DB::table('apartaments')
-                ->where('id', $apartmentId)
+            DB::table('apartament_groups')
+                ->where('group_id', $groupId)
                 ->update($apartment);
 
         }catch(Exception $e){
@@ -242,4 +261,94 @@ class Complexes extends Model
 
         return $photos;
     }
+
+    public function availableApartments(array $idGroup){
+
+        return DB::table('apartaments')
+            ->join('apartament_descriptions', 'apartaments.id', '=', 'apartament_descriptions.apartament_id')
+            ->whereIn('group_id', $idGroup)
+            ->where('language_id', 1)
+            ->pluck('apartament_name', 'apartaments.id');
+    }
+
+    public function selectedApartments($idGroup){
+
+        $result = DB::table('apartaments')
+            ->select('apartaments.id')
+            ->join('apartament_descriptions', 'apartaments.id', '=', 'apartament_descriptions.apartament_id')
+            ->where('group_id', $idGroup)
+            ->where('language_id', 1)
+            ->pluck('apartaments.id');
+
+        return $result->toArray();
+    }
+
+    public function allApartmentIds($idGroup){
+
+        $result = DB::table('apartaments')
+            ->select('apartaments.id')
+            ->join('apartament_descriptions', 'apartaments.id', '=', 'apartament_descriptions.apartament_id')
+            ->whereIn('group_id', [$idGroup, 0])
+            ->where('language_id', 1)
+            ->pluck('apartaments.id');
+
+        return $result->toArray();
+    }
+
+    public function updateApartmentGroupId($apartmentIds, $groupId){
+
+        DB::table('apartaments')
+            ->whereIn('id', $apartmentIds)
+            ->update([
+                'group_id' => $groupId
+            ]);
+
+    }
+
+    public function getApartmentToMerge($apartmentsId){
+
+        $data = DB::table('apartaments')
+            ->selectRaw('
+                SUM(apartament_persons) as apartament_persons,
+                MAX(apartament_kids) as apartament_kids,
+                SUM(apartament_rooms_number) as apartament_rooms_number,
+                SUM(apartament_intransitive_rooms) as apartament_intransitive_rooms,
+                SUM(apartament_single_beds) as apartament_single_beds,
+                SUM(apartament_double_beds) as apartament_double_beds,
+                SUM(apartament_bathrooms) as apartament_bathrooms,
+                SUM(apartament_bedrooms) as apartament_bedrooms,
+                SUM(apartament_living_area) as apartament_living_area,
+                MAX(apartament_floors_number) as apartament_floors_number,
+                MAX(apartament_levels_number) as apartament_levels_number,
+                MAX(apartament_spa) as apartament_spa,
+                MAX(apartament_animals) as apartament_animals,
+                MAX(apartament_wifi) as apartament_wifi,
+                MAX(apartament_parking) as apartament_parking,
+                MAX(apartament_tv) as apartament_tv,
+                MAX(apartament_vaccum_cleaner) as apartament_vaccum_cleaner,
+                MAX(apartament_fireplace) as apartament_fireplace,
+                MAX(apartament_balcony) as apartament_balcony,
+                MAX(apartament_kid_beds) as apartament_kid_beds,
+                MAX(apartament_fridge) as apartament_fridge,
+                MAX(apartament_cooker) as apartament_cooker,
+                MAX(apartament_washing_machine) as apartament_washing_machine,
+                MAX(apartament_electric_kettle) as apartament_electric_kettle,
+                MAX(apartament_microvawe_owen) as apartament_microvawe_owen,
+                MAX(apartament_shower_cabin) as apartament_shower_cabin,
+                MAX(apartament_hair_dryer) as apartament_hair_dryer,
+                MAX(apartament_elevator) as apartament_elevator,
+                MAX(apartament_iron) as apartament_iron,
+                MAX(apartament_toaster) as apartament_toaster,
+                MAX(apartament_washer) as apartament_washer,
+                MAX(apartament_bathtub) as apartament_bathtub,
+                MAX(apartament_other_equipment) as apartament_other_equipment,
+                MAX(apartament_other_bathroom_equipment) as apartament_other_bathroom_equipment
+            ')
+            ->whereIn('apartaments.id', $apartmentsId)
+            ->first();
+
+        return (array)$data;
+
+    }
+
 }

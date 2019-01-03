@@ -41,11 +41,17 @@ class ComplexesController extends MenuController
 
         $this->setActiveSubmenu('new');
 
-        return view('apartments.form', [
+        $complex = new Complexes();
+        $availableApartments = $complex->availableApartments([0]);
+        //dd($availableApartments);
+
+        return view('complex.form', [
             'menu' => $this->menu,
             'submenu' => $this->submenu,
             'activeSubmenu' => $this->activeSubmenu,
             'request' => $request,
+            'availableApartments' => $availableApartments,
+            'selectedApartments' => null,
         ]);
 
     }
@@ -54,45 +60,52 @@ class ComplexesController extends MenuController
 
         $this->setActiveSubmenu('new');
 
-        $apartment = new Apartments();
-        $apartment = $apartment->apartmentToEdit($id);
+        $complex = new Complexes();
+        $complexToEdit = $complex->apartmentToEdit($id);
+        $availableApartments = $complex->availableApartments([$id, 0]);
+        $selectedApartments = $complex->selectedApartments($id);
+        $mergedIds = $complex->allApartmentIds($id);
+        $mergedIds = implode(', ', $mergedIds);
 
-        return view('apartments.form', [
+        return view('complex.form', [
             'menu' => $this->menu,
             'submenu' => $this->submenu,
             'activeSubmenu' => 'edycja',
-            'apartment' => $apartment,
+            'apartment' => $complexToEdit,
             'request' => $request,
+            'availableApartments' => $availableApartments,
+            'selectedApartments' => $selectedApartments,
+            'mergedIds' => $mergedIds,
         ]);
 
     }
 
-    public function insert(Apartment $request){
+    public function insert(Complex $request){
 
-        $apartment = new Apartments();
+        $apartment = new Complexes();
         $apartment->saveNew($request);
 
-        return redirect()->route("apartments.main");
+        return redirect()->route("complex.main");
 
     }
 
-    public function update(Apartment $request){
+    public function update(Complex $request){
 
-        $apartment = new Apartments();
+        $apartment = new Complexes();
         $apartment->saveChanges($request);
 
-        return redirect()->route("apartments.main");
+        return redirect()->route("complex.main");
 
     }
 
     public function photos($id){
 
-        $apartment = new Apartments();
+        $apartment = new Complexes();
         $photos = $apartment->apartmentPhotos($id);
 
         $mainPhotoId = $apartment->apartmentMainPhoto($id);
 
-        return view('apartments.photos', [
+        return view('complex.photos', [
             'menu' => $this->menu,
             'submenu' => $this->submenu,
             'activeSubmenu' => $this->activeSubmenu,
@@ -111,7 +124,7 @@ class ComplexesController extends MenuController
         $newMainPhotoId = $request->mainPhoto;
         $apartmentId = $request->apartmentId;
 
-        $apartment = new Apartments();
+        $apartment = new Complexes();
         $changedMainImg = $apartment->checkMainImgChanged($newMainPhotoId, $apartmentId);
         $mainImgLink = $apartment->getMainImgLink($newMainPhotoId, $apartmentId);
 
@@ -123,12 +136,12 @@ class ComplexesController extends MenuController
             $apartment->resizeMainImg($mainImgLink, $apartmentId);
         }
 
-        return redirect()->route("apartments.main");
+        return redirect()->route("complex.main");
     }
 
     public function newPhotos(){
 
-        return view('apartments.photos-new', [
+        return view('complex.photos-new', [
             'menu' => $this->menu,
             'submenu' => $this->submenu,
             'activeSubmenu' => $this->activeSubmenu,
@@ -138,10 +151,10 @@ class ComplexesController extends MenuController
 
     public function prices($id){
 
-        $apartment = new Apartments();
+        $apartment = new Complexes();
         $prices = $apartment->apartmentPrices($id);
 
-        return view('apartments.prices', [
+        return view('complex.prices', [
             'menu' => $this->menu,
             'submenu' => $this->submenu,
             'activeSubmenu' => $this->activeSubmenu,

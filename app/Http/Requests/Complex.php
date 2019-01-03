@@ -25,6 +25,7 @@ class Complex extends FormRequest
     public function rules()
     {
         return [
+            'apartments' => 'required',
             'apartament_name' => 'required|min:4',
             'apartament_link' => 'required', //|unique:apartament_descriptions,apartament_link',
             'apartament_description_begin' => 'required',
@@ -33,10 +34,6 @@ class Complex extends FormRequest
             'apartament_gps' => 'required',
             'apartament_address' => 'required',
             'apartament_address_2' => 'required',
-            'final_cleaning_price' => 'required',
-            'apartament_living_area' => 'required',
-            'apartament_registration_time' => 'required',
-            'apartament_checkout_time' => 'required',
         ];
     }
 
