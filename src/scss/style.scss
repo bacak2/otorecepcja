@@ -1,0 +1,11 @@
+@import "settings";
+
+body, div{
+    background-color: $color-bg;
+    color: $color-text;
+}
+
+h1{
+    color: $color-text;
+    display: flex;
+}
