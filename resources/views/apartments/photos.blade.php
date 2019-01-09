@@ -6,7 +6,8 @@
         <div class="d-inline-block">
             <h1>Zdjęcia</h1>
         </div>
-        <a class="btn btn-lg btn-success pull-right" href="{{ route('apartments.photosNew', ['id' => $apartmentId]) }}"><img style="max-width: 10px" src="{{ asset("images/Apartment/add.png") }}"> Dodaj nowe</a>
+        <button id="idNewPhotos" class="btn btn-lg btn-success pull-left" href="{{ route('apartments.photosNew', ['id' => $apartmentId]) }}"><img style="max-width: 10px" src="{{ asset("images/Apartment/add.png") }}"> Dodaj nowe</button>
+        @include('apartments.photos-new')
     </div>
 
     @if($photos !== null)
@@ -63,6 +64,10 @@
         $(".delete").click(function(){
             let row = $(this).parents("tr:first");
             row.remove();
+        });
+
+        $("#idNewPhotos").click(function(){
+            $("#addNewPhotosForm").show();
         });
     });
 </script>

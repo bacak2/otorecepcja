@@ -90,8 +90,6 @@ class Apartments extends Model
 
         $apartment = $this->apartmentFromRequest($request, $description);
 
-        //dd($description);
-
         try{
             $description['apartament_id'] = DB::table('apartaments')
                 ->insertGetId($apartment);
@@ -241,5 +239,29 @@ class Apartments extends Model
             ->paginate($perPage);
 
         return $photos;
+    }
+
+    public function uploadPhotos($id, $request){
+
+        $request->validate(
+            ['uploaded_images' => 'required'],
+            ['uploaded_images.required' => 'Nie wybrano żadnego pliku']
+        );
+
+        if($request->hasFile('uploaded_images')) {
+            $images = $request->file('uploaded_images');
+            foreach($images as $image){
+                if(substr($image->getMimeType(), 0, 5) !== 'image') continue;
+                $name = $image->getClientOriginalName();
+                if($image->move(public_path().'/images/apartaments/'.$id, $name)){
+                    DB::table('apartament_photos')
+                        ->insert([
+                            'apartament_id' => $id,
+                            'photo_link' => $name
+                        ]);
+                }
+            }
+        }
+
     }
 }

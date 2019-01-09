@@ -18,3 +18,7 @@ th.w-25px{
 .btn-outline-custom{
     border: 1px solid #c3c3c3 !important;
 }
+
+#addNewPhotosForm{
+    display: none;
+}

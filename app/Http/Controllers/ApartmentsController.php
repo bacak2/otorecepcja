@@ -126,12 +126,13 @@ class ApartmentsController extends MenuController
         return redirect()->route("apartments.main");
     }
 
-    public function newPhotos(){
+    public function newPhotos($id){
 
         return view('apartments.photos-new', [
             'menu' => $this->menu,
             'submenu' => $this->submenu,
             'activeSubmenu' => $this->activeSubmenu,
+            'id' => $id,
         ]);
 
     }
@@ -148,5 +149,13 @@ class ApartmentsController extends MenuController
             'prices' => $prices,
             'apartmentId' => $id,
         ]);
+    }
+
+    public function uploadPhotos($id, Request $request){
+
+        $apartment = new Apartments();
+        $apartment->uploadPhotos($id, $request);
+
+        return redirect()->route("apartments.photos", ['id' => $id]);
     }
 }

@@ -22,6 +22,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/apartments/photos/new/{id}', 'ApartmentsController@newPhotos')->name('apartments.photosNew');
 
+    Route::post('/apartments/photos/{id}/upload', 'ApartmentsController@uploadPhotos')->name('apartments.uploadPhotos');
+
     Route::post('/apartments/save-photos', 'ApartmentsController@savePhotos')->name('apartments.savePhotos');
 
     Route::get('/apartments/edit/{id}', 'ApartmentsController@edit')->name('apartments.edit');

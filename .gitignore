@@ -1,2 +1,10 @@
 # Don't track content of these folders
+bootstrap/
+config/
+database/
+node_modules/
+public/images/
+src/
+storage/
 tests/
+vendor/
